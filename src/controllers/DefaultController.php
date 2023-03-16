@@ -14,7 +14,7 @@ class DefaultController extends AppController {
         $this->render('hau');
     }
 
-    public function login()
+    public function index()
     {
         $this->render('login');
     }
