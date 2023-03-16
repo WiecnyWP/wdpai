@@ -23,12 +23,18 @@
         </div>
         <div class="content">
             <div class="login-container">
-                <form id="add">
+                <form id="add" action="add" method="POST" ENCTYPE="multipart/form-data">
+                    <?php if(isset($messages)) {
+                        foreach ($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
                     <input name="type" type="text" placeholder="type">
                     <input name="name" type="text" placeholder="name">
                     <input name="city" type="text" placeholder="city">
-                    <input name="image" type="text" placeholder="image">
-                    <button>Add</button>
+                    <input name="file" type="file" placeholder="image">
+                    <button type="submit">Add</button>
                 </form>
             </div>
             <div class="logo">

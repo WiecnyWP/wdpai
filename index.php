@@ -9,6 +9,7 @@ Routing::get('', 'DefaultController');
 Routing::get('add', 'DefaultController');
 Routing::get('hau', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post('add', 'ArtController');
 Routing::get('register', 'DefaultController');
 Routing::get('search', 'DefaultController');
 Routing::get('workofart', 'DefaultController');

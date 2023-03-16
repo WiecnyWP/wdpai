@@ -112,6 +112,21 @@
                     <a href="#" class="fas fa-star s5"></a>
                 </div>
             </div>
+            <div id="project-6">
+                <img src="public/uploads/<?= $art->getImage() ?>">
+                <div class="description">
+                    <p><?= $art->getType() ?></p>
+                    <p><?= $art->getName() ?></p>
+                    <p><?= $art->getCity() ?></p>
+                </div>
+                <div class="star-wrapper">
+                    <a href="#" class="fas fa-star s1"></a>
+                    <a href="#" class="fas fa-star s2"></a>
+                    <a href="#" class="fas fa-star s3"></a>
+                    <a href="#" class="fas fa-star s4"></a>
+                    <a href="#" class="fas fa-star s5"></a>
+                </div>
+            </div>
         </section> 
     </div> 
 </body>
