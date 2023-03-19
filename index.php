@@ -11,6 +11,7 @@ Routing::get('hau', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('add', 'ArtController');
 Routing::get('register', 'DefaultController');
+Routing::post('registerAdd', 'SecurityController');
 Routing::get('search', 'DefaultController');
 Routing::get('workofart', 'DefaultController');
 

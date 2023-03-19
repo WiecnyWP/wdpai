@@ -7,13 +7,19 @@
 <body>
     <div class="container">
         <div class="login-container">
-            <form id="register">
+            <form id="register" action="registerAdd" method="POST" ENCTYPE="multipart/form-data">
+                <?php if(isset($messages)) {
+                    foreach ($messages as $message){
+                        echo $message;
+                    }
+                }
+                ?>
                 <input name="name" type="text" placeholder="name">
                 <input name="surname" type="text" placeholder="surname">
                 <input name="username" type="text" placeholder="username">
                 <input name="password" type="password" placeholder="password">
-                <input name="password" type="password" placeholder="password">
-                <button>Submit</button>
+                <input name="confirmedPassword" type="password" placeholder="password">
+                <button type="submit">Submit</button>
             </form>
         </div>
         <div class="logo">

@@ -8,17 +8,17 @@
 <body>
     <div class="container">
         <div class="navigation">
-            <div class="item"><img src="public/img/hau.png"></div>
-            <div class="item"><a href="#">Work of art</a></div>
-            <div class="item"><a href="#">Search</a></div>
-            <div class="item"><a href="#">Add</a></div>
+            <div class="item"><img src="public/img/hau.png" onclick="window.location.href='hau'"></div>
+            <div class="item"><a href="workofart">Work of art</a></div>
+            <div class="item"><a href="search">Search</a></div>
+            <div class="item"><a href="add">Add</a></div>
             <div class="item"><button>Logout</button></div>
         </div>
         <div class="navigation-mobile">
-            <div class="item"><a href="#"><i class="fa-solid fa-h"></i></a></div>
-            <div class="item"><a href="#"><i class="fa-solid fa-paintbrush"></i></a></div>
-            <div class="item"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
-            <div class="item"><a href="#"><i class="fa-solid fa-plus"></i></a></div>
+            <div class="item"><a href="hau"><i class="fa-solid fa-h"></i></a></div>
+            <div class="item"><a href="workofart"><i class="fa-solid fa-paintbrush"></i></a></div>
+            <div class="item"><a href="search"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+            <div class="item"><a href="add"><i class="fa-solid fa-plus"></i></a></div>
             <div class="item"><a href="#"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></a></div>
         </div>
         <div class="content-workofart content">

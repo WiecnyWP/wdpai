@@ -17,7 +17,7 @@
                 </div>
                 <input name="username" type="text" placeholder="username">
                 <input name="password" type="password" placeholder="password">
-                <a href="#">not started? click here to register</a>
+                <a href="register">not started? click here to register</a>
                 <button type="submit">Login</button>
             </form>
         </div>

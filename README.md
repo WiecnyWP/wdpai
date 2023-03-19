@@ -8,6 +8,8 @@ People from all over the world can search works of art such as paintings, sculpt
 
 ## Website presentation
 
+![Alt text](/public/img/website2.png)
+
 ![Alt text](/public/img/website.png)
 
 ## Tech stack

@@ -8,16 +8,23 @@ class SecurityController extends AppController
     public function login()
     {
         $userRepository = new UserRepository();
-
-
+        /*
+        $options = [
+            'cost' => 12,
+        ];
+        */
         if (!$this->isPost()){
             return $this->render('login', ['messages' => ['']]);
         }
 
         $username = $_POST["username"];
+        //$password = strval(password_hash($_POST["password"], PASSWORD_BCRYPT, $options));
         $password = $_POST["password"];
+        //echo $password;
 
         $user = $userRepository->getUser($username);
+
+        //echo $user->getPassword();
 
         if (!$user) {
             return $this->render('login', ['messages' => ['User does not exist!']]);
@@ -35,5 +42,30 @@ class SecurityController extends AppController
 
         return $this->render('hau');
 
+    }
+
+
+    public function registerAdd(){
+
+        if (!$this->isPost()){
+            return $this->render('login', ['messages' => ['']]);
+        }
+        /*
+        $options = [
+            'cost' => 12,
+        ];
+        */
+        $user = new User(
+            $_POST["name"],
+            $_POST["surname"],
+            $_POST["username"],
+            //strval(password_hash($_POST["password"], PASSWORD_BCRYPT, $options))
+            $_POST["password"]
+        );
+
+        $userRepository = new UserRepository();
+        $userRepository->addUser($user);
+
+        return $this->render('login');
     }
 }

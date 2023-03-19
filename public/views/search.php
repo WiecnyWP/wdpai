@@ -8,7 +8,7 @@
 <body>
     <div class="search-container">
         <div class="navigation">
-            <div class="item"><img src="public/img/hau.png"></div>
+            <div class="item"><img src="public/img/hau.png" onclick="window.location.href='hau'"></div>
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input name="name" type="text">
