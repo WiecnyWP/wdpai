@@ -24,11 +24,6 @@ class DefaultController extends AppController {
         $this->render('register');
     }
 
-    public function search()
-    {
-        $this->render('search');
-    }
-
     public function workofart()
     {
         $this->render('workofart');

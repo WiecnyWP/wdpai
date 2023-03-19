@@ -18,7 +18,12 @@ class ArtController extends AppController
         $this->artRepository = new ArtRepository();
     }
 
-
+    public function search()
+    {
+        $arts = $this->artRepository->getArts();
+        //var_dump($arts);
+        $this->render('search', ['arts' => $arts]);
+    }
     public function add()
     {
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
@@ -46,4 +51,6 @@ class ArtController extends AppController
 
         return true;
     }
+
+
 }

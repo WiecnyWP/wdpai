@@ -22,12 +22,13 @@
             </div>
         </div> 
         <section class="projects">
+            <?php foreach ($arts as $a): ?>
             <div id="project-1">
                 <img src="public/img/angel.jpg">
                 <div class="description">
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
+                    <p><?= $a->getType() ?></p>
+                    <p><?= $a->getName() ?></p>
+                    <p><?= $a->getCity() ?></p>
                 </div>
                 <div class="star-wrapper">
                     <a href="#" class="fas fa-star s1"></a>
@@ -37,6 +38,7 @@
                     <a href="#" class="fas fa-star s5"></a>
                 </div>
             </div>
+            <?php endforeach; ?>
             <div id="project-2">
                 <img src="public/img/angel.jpg">
                 <div class="description">
@@ -112,7 +114,7 @@
                     <a href="#" class="fas fa-star s5"></a>
                 </div>
             </div>
-            <div id="project-6">
+            <div id="project-7">
                 <img src="public/uploads/<?= $art->getImage() ?>">
                 <div class="description">
                     <p><?= $art->getType() ?></p>

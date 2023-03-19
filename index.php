@@ -12,7 +12,7 @@ Routing::post('login', 'SecurityController');
 Routing::post('add', 'ArtController');
 Routing::get('register', 'DefaultController');
 Routing::post('registerAdd', 'SecurityController');
-Routing::get('search', 'DefaultController');
+Routing::get('search', 'ArtController');
 Routing::get('workofart', 'DefaultController');
 
 Routing::run($path);
