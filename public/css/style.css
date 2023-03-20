@@ -70,6 +70,13 @@ body {
     max-width: 80%;
 }
 
+.no-valid {
+    border: 10px solid red;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em red;
+    outline: none;
+}
+
 ::placeholder {
     font: normal normal normal 20px/27px Segoe UI;
     color: #FA4238;
