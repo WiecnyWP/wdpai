@@ -62,5 +62,20 @@ class ArtRepository extends Repository
         return $result;
     }
 
+    //FETCH API
+    public function getProjectByTitle(string $searchString) {
+        $searchString = '%' . strtolower($searchString) . '%';
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.arts a
+            JOIN public.cities c ON a.id_city = c.id_city
+            JOIN public.types t ON a.id_type = t.id_type WHERE LOWER(type) LIKE :search OR LOWER(name) LIKE :search OR LOWER(city) LIKE :search
+        ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }

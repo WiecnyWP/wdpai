@@ -13,6 +13,8 @@ Routing::post('add', 'ArtController');
 Routing::get('register', 'DefaultController');
 Routing::post('registerAdd', 'SecurityController');
 Routing::get('search', 'ArtController');
+//FETCH API
+Routing::post('searchArt', 'ArtController');
 Routing::get('workofart', 'DefaultController');
 
 Routing::run($path);
