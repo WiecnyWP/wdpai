@@ -3,23 +3,25 @@
     <link rel="stylesheet" type="text/css" href="public/css/hau.css">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <script src="https://kit.fontawesome.com/ad422f1a5c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/logout.js" defer></script>
     <title>Add</title>
 </head>
 <body>
+    <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?>
     <div class="container-add">
         <div class="navigation">
             <div class="item"><img src="public/img/hau.png" onclick="window.location.href='hau'"></div>
             <div class="item"><a href="workofart">Work of art</a></div>
             <div class="item"><a href="search">Search</a></div>
             <div class="item"><a href="add">Add</a></div>
-            <div class="item"><button>Logout</button></div>
+            <div class="item"><button id="logout">Logout</button></div>
         </div>
         <div class="navigation-mobile">
             <div class="item"><a href="hau"><i class="fa-solid fa-h"></i></a></div>
             <div class="item"><a href="workofart"><i class="fa-solid fa-paintbrush"></i></a></div>
             <div class="item"><a href="search"><i class="fa-solid fa-magnifying-glass"></i></a></div>
             <div class="item"><a href="add"><i class="fa-solid fa-plus"></i></a></div>
-            <div class="item"><a href="#"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></a></div>
+            <div class="item"><a id="logoutMobile"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></a></div>
         </div>
         <div class="content">
             <div class="login-container">

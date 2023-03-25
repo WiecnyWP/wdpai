@@ -8,23 +8,15 @@ class SecurityController extends AppController
     public function login()
     {
         $userRepository = new UserRepository();
-        /*
-        $options = [
-            'cost' => 12,
-        ];
-        */
+
         if (!$this->isPost()){
             return $this->render('login', ['messages' => ['']]);
         }
 
         $username = $_POST["username"];
-        //$password = strval(password_hash($_POST["password"], PASSWORD_BCRYPT, $options));
         $password = $_POST["password"];
-        //echo $password;
-
         $user = $userRepository->getUser($username);
 
-        //echo $user->getPassword();
 
         if (!$user) {
             return $this->render('login', ['messages' => ['User does not exist!']]);
@@ -35,37 +27,51 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Username does not exist!']]);
         }
 
+        /*
         if ($user->getPassword() !== $password)
         {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
+        */
+        if (!password_verify($password, $user->getPassword()))
+        {
+            return $this->render('login', ['messages' => ['Wrong password!']]);
+        }
+
+
+        setcookie("id_user", $user->getId(), time()+1800, '/');
 
         return $this->render('hau');
 
     }
-
-
+    
     public function registerAdd(){
 
         if (!$this->isPost()){
             return $this->render('login', ['messages' => ['']]);
         }
-        /*
+
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
         $options = [
             'cost' => 12,
         ];
-        */
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT, $options);
+
         $user = new User(
-            $_POST["name"],
-            $_POST["surname"],
-            $_POST["username"],
-            //strval(password_hash($_POST["password"], PASSWORD_BCRYPT, $options))
-            $_POST["password"]
+            $name,
+            $surname,
+            $username,
+            $hashedPassword
         );
 
         $userRepository = new UserRepository();
         $userRepository->addUser($user);
 
         return $this->render('login');
+
     }
 }

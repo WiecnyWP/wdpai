@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Art.php';
 class ArtRepository extends Repository
@@ -9,9 +8,9 @@ class ArtRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM arts WHERE id_art = :id_art
         ');
+
         $stmt->bindParam(':id_art', $id_art, PDO::PARAM_INT);
         $stmt->execute();
-
         $art = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$art) {
@@ -30,6 +29,7 @@ class ArtRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             CALL add_art(?, ?, ?, ?);
         ');
+
         $stmt->execute([
             $art->getName(),
             $art->getType(),
@@ -62,7 +62,6 @@ class ArtRepository extends Repository
         return $result;
     }
 
-    //FETCH API
     public function getProjectByTitle(string $searchString) {
         $searchString = '%' . strtolower($searchString) . '%';
 
@@ -76,6 +75,5 @@ class ArtRepository extends Repository
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 
 }

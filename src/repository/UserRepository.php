@@ -18,12 +18,15 @@ class UserRepository extends Repository
             return null;
         }
 
-        return new User(
+        $resultUser = new User(
             $user['name'],
             $user['surname'],
             $user['username'],
             $user['password']
         );
+
+        $resultUser->setId($user['id_user']);
+        return $resultUser;
     }
 
     public function addUser(User $user): void {

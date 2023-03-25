@@ -2,8 +2,12 @@ const search = document.querySelector('input[placeholder="Search"]');
 const searchMobile = document.querySelector('.navigation-mobile [placeholder="Search"]');
 const artContainer = document.querySelector(".projects");
 
-search.addEventListener("keyup", handleSearch);
-searchMobile.addEventListener("keyup", handleSearch);
+if(search){
+    search.addEventListener("keyup", handleSearch);
+}
+if(searchMobile){
+    searchMobile.addEventListener("keyup", handleSearch);
+}
 
 function handleSearch(event) {
     if (event.key === "Enter") {
@@ -21,7 +25,6 @@ function handleSearch(event) {
         });
     }
 }
-
 
 function loadArts(projects) {
     projects.forEach(project => {

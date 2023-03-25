@@ -77,7 +77,7 @@ CREATE PROCEDURE public.add_user(IN p_name character varying, IN p_surname chara
     AS $$
 BEGIN
 INSERT INTO public.users_data (name, surname) VALUES (p_name, p_surname);
-INSERT INTO public.users (id_user_data, username, password, enabled) VALUES (currval('public.users_data_id_user_data_seq'), p_username, p_password, 1);
+INSERT INTO public.users (id_user_data, username, password) VALUES (currval('public.users_data_id_user_data_seq'), p_username, p_password);
 END;
 $$;
 
@@ -215,8 +215,7 @@ CREATE TABLE public.users (
                               id_user_data integer NOT NULL,
                               id_user_privilege integer DEFAULT 2 NOT NULL,
                               username character varying(255) NOT NULL,
-                              password character varying(255) NOT NULL,
-                              enabled integer DEFAULT 2
+                              password character varying(255) NOT NULL
 );
 
 
@@ -330,7 +329,12 @@ ALTER TABLE ONLY public.users_data ALTER COLUMN id_user_data SET DEFAULT nextval
 --
 
 COPY public.arts (id_art, id_city, id_type, name, image) FROM stdin;
-2       1       1       Michelangelo    Path
+2       1       1       Michelangelo    angel.jpg
+45      13      2       Starry Night    starrynight.jpg
+48      14      3       Mercedes 770    mercedes.jpeg
+49      13      1       Statue of Liberty       statue.jpg
+50      2       1       Independent Cat cat.jpg
+51      2       2       Battle of Grunwald      war.jpg
 \.
 
 
@@ -339,8 +343,10 @@ COPY public.arts (id_art, id_city, id_type, name, image) FROM stdin;
 --
 
 COPY public.cities (id_city, city) FROM stdin;
-1       Cracow
 2       Warsaw
+1       Florence
+13      New York
+14      Berlin
 \.
 
 
@@ -349,7 +355,6 @@ COPY public.cities (id_city, city) FROM stdin;
 --
 
 COPY public.rates (id_user, id_art, rate) FROM stdin;
-1       2       4
 \.
 
 
@@ -368,8 +373,9 @@ COPY public.types (id_type, type) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: dbuser
 --
 
-COPY public.users (id_user, id_user_data, id_user_privilege, username, password, enabled) FROM stdin;
-1       1       1       kowalski        admin   2
+COPY public.users (id_user, id_user_data, id_user_privilege, username, password) FROM stdin;
+25      36      1       admin   $2y$12$Qdtn1bc8qpsC0rUPCU9ZCODBcR3oP9DCjLaUUXW3zHT/JngHr9qq.
+26      37      2       user    $2y$12$gEuC.JN.Y.e53ludlbXPN.fkynLEd.omFQGKVqCfpK02UBJq9.rZu
 \.
 
 
@@ -378,8 +384,8 @@ COPY public.users (id_user, id_user_data, id_user_privilege, username, password,
 --
 
 COPY public.users_data (id_user_data, name, surname) FROM stdin;
-1       Jan     Kowalski
-16      moderator       moderator
+36      Jan     Kowalski
+37      Janusz  Nowak
 \.
 
 
@@ -397,35 +403,35 @@ COPY public.users_privileges (id_user_privilege) FROM stdin;
 -- Name: arts_id_art_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.arts_id_art_seq', 13, true);
+SELECT pg_catalog.setval('public.arts_id_art_seq', 55, true);
 
 
 --
 -- Name: cities_id_city_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.cities_id_city_seq', 9, true);
+SELECT pg_catalog.setval('public.cities_id_city_seq', 14, true);
 
 
 --
 -- Name: types_id_type_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.types_id_type_seq', 12, true);
+SELECT pg_catalog.setval('public.types_id_type_seq', 16, true);
 
 
 --
 -- Name: users_data_id_user_data_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.users_data_id_user_data_seq', 18, true);
+SELECT pg_catalog.setval('public.users_data_id_user_data_seq', 38, true);
 
 
 --
 -- Name: users_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.users_id_user_seq', 13, true);
+SELECT pg_catalog.setval('public.users_id_user_seq', 27, true);
 
 
 --

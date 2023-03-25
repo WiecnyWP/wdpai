@@ -35,8 +35,6 @@ class ArtController extends AppController
         $this->render('add', ['messages' => $this->messages]);
     }
 
-    //FETCH API
-
     public function searchArt() {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
         if($contentType === "application/json") {
@@ -62,6 +60,5 @@ class ArtController extends AppController
 
         return true;
     }
-
 
 }

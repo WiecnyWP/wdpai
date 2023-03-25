@@ -3,6 +3,7 @@
 class Art
 {
     private $type;
+
     private $name;
     private $city;
     private $image;
@@ -53,6 +54,5 @@ class Art
     {
         $this->image = $image;
     }
-
 
 }

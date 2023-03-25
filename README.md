@@ -18,5 +18,8 @@ People from all over the world can search works of art such as paintings, sculpt
 * CSS
 * PHP
 * PostgreSQL
+* JavaScript
 
 ## ERD
+
+![Alt text](/public/img/erd.png)

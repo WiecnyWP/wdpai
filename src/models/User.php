@@ -2,6 +2,8 @@
 
 class User
 {
+
+    private $id;
     private $name;
     private $surname;
     private $username;
@@ -14,6 +16,17 @@ class User
         $this->username = $username;
         $this->password = $password;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
 
     public function getName() : string
     {
