@@ -80,6 +80,16 @@ p {
     display: none;
 }
 
+.container-add {
+    text-align: center;
+}
+
+.warning {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+
 @media only screen and (max-device-width: 430px) {
     .content {
         flex-direction: column-reverse;

@@ -27,19 +27,14 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Username does not exist!']]);
         }
 
-        /*
-        if ($user->getPassword() !== $password)
-        {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
-        }
-        */
+
         if (!password_verify($password, $user->getPassword()))
         {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-
         setcookie("id_user", $user->getId(), time()+1800, '/');
+        setcookie("id_user_privilege", $user->getIdPrivilege(), time()+1800, '/');
 
         return $this->render('hau');
 

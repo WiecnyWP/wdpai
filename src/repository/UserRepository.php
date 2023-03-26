@@ -7,7 +7,10 @@ class UserRepository extends Repository
 {
     public function getUser(string $username) : ?User {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users u JOIN public.users_data ud ON u.id_user_data=ud.id_user_data WHERE username = :username;
+            SELECT * FROM public.users u 
+            JOIN public.users_data ud ON u.id_user_data = ud.id_user_data 
+            JOIN public.users_privileges up ON u.id_user_privilege = up.id_user_privilege
+            WHERE username = :username;
         ');
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
@@ -24,7 +27,7 @@ class UserRepository extends Repository
             $user['username'],
             $user['password']
         );
-
+        $resultUser->setIdPrivilege($user['id_user_privilege']);
         $resultUser->setId($user['id_user']);
         return $resultUser;
     }

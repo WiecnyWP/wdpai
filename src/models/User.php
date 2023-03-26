@@ -4,6 +4,8 @@ class User
 {
 
     private $id;
+    private $idPrivilege;
+
     private $name;
     private $surname;
     private $username;
@@ -17,6 +19,15 @@ class User
         $this->password = $password;
     }
 
+    public function getIdPrivilege()
+    {
+        return $this->idPrivilege;
+    }
+
+    public function setIdPrivilege($idPrivilege): void
+    {
+        $this->idPrivilege = $idPrivilege;
+    }
     public function getId()
     {
         return $this->id;

@@ -23,6 +23,7 @@
             <div class="item"><a href="add"><i class="fa-solid fa-plus"></i></a></div>
             <div class="item"><a id="logoutMobile"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></a></div>
         </div>
+        <?php if(isset($_COOKIE["id_user_privilege"]) && $_COOKIE["id_user_privilege"] == 1) :?>
         <div class="content">
             <div class="login-container">
                 <form id="add" action="add" method="POST" ENCTYPE="multipart/form-data">
@@ -43,5 +44,12 @@
                 <img src="public/img/logo.svg">
             </div> 
         </div>
+        <?php else :?>
+            <div class="not-admin">
+                <p class="warning">Only administrator can add art!</p>
+                <img src="public/img/unhappy.png">
+            </div>
+        <?php endif; ?>
     </div>
+
 </body>

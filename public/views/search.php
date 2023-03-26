@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?>
+
     <div class="search-container">
         <div class="navigation">
             <div class="item"><img src="public/img/hau.png" onclick="window.location.href='hau'"></div>
