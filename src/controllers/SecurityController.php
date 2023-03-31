@@ -9,7 +9,7 @@ class SecurityController extends AppController
     {
         $userRepository = new UserRepository();
 
-        if (!$this->isPost()){
+        if (!$this->isPost()) {
             return $this->render('login', ['messages' => ['']]);
         }
 
@@ -22,27 +22,28 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User does not exist!']]);
         }
 
-        if ($user->getUsername() !== $username)
-        {
+        if ($user->getUsername() !== $username) {
             return $this->render('login', ['messages' => ['Username does not exist!']]);
         }
 
 
-        if (!password_verify($password, $user->getPassword()))
-        {
+        if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
         setcookie("id_user", $user->getId(), time()+1800, '/');
         setcookie("id_user_privilege", $user->getIdPrivilege(), time()+1800, '/');
 
-        return $this->render('hau');
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/hau");
 
     }
     
-    public function registerAdd(){
+    public function registerAdd()
+    {
 
-        if (!$this->isPost()){
+        if (!$this->isPost()) {
             return $this->render('login', ['messages' => ['']]);
         }
 
@@ -54,6 +55,7 @@ class SecurityController extends AppController
         $options = [
             'cost' => 12,
         ];
+
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
         $user = new User(

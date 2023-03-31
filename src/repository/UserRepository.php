@@ -5,7 +5,8 @@ require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
 class UserRepository extends Repository
 {
-    public function getUser(string $username) : ?User {
+    public function getUser(string $username) : ?User
+    {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users u 
             JOIN public.users_data ud ON u.id_user_data = ud.id_user_data 
@@ -32,7 +33,8 @@ class UserRepository extends Repository
         return $resultUser;
     }
 
-    public function addUser(User $user): void {
+    public function addUser(User $user): void
+    {
         $stmt = $this->database->connect()->prepare('
             CALL add_user(?, ?, ?, ?);
         ');

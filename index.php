@@ -15,5 +15,7 @@ Routing::post('registerAdd', 'SecurityController');
 Routing::get('search', 'ArtController');
 Routing::post('searchArt', 'ArtController');
 Routing::get('workofart', 'DefaultController');
+Routing::post('saveRate', 'ArtController');
+Routing::post('checkRateIsset', 'ArtController');
 
 Routing::run($path);

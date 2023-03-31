@@ -2,11 +2,15 @@
 
 class Art
 {
+    private $id;
+    private $avg;
+    private $currentUserRate;
     private $type;
-
     private $name;
     private $city;
     private $image;
+
+
     public function __construct($type, $name, $city, $image)
     {
         $this->type = $type;
@@ -54,5 +58,36 @@ class Art
     {
         $this->image = $image;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getAvg()
+    {
+        return $this->avg;
+    }
+
+    public function setAvg($avg): void
+    {
+        $this->avg = $avg;
+    }
+
+    public function getCurrentUserRate()
+    {
+        return $this->currentUserRate;
+    }
+
+    public function setCurrentUserRate($currentUserRate): void
+    {
+        $this->currentUserRate = $currentUserRate;
+    }
+
 
 }

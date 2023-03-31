@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutElement = document.querySelector("#logout");
     const logoutMobile = document.querySelector("#logoutMobile");
 
-    logoutElement.addEventListener("click", handleLogout);
+    if(logoutElement) {
+        logoutElement.addEventListener("click", handleLogout);
+    }
     if(logoutMobile) {
         logoutMobile.addEventListener("click", handleLogout);
     }

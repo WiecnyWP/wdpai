@@ -35,7 +35,8 @@ class ArtController extends AppController
         $this->render('add', ['messages' => $this->messages]);
     }
 
-    public function searchArt() {
+    public function searchArt()
+    {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
         if($contentType === "application/json") {
             $content = trim(file_get_contents("php://input"));
@@ -59,6 +60,36 @@ class ArtController extends AppController
         }
 
         return true;
+    }
+
+    public function saveRate()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+        if($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content);
+            header('Content-Type: application/json');
+            http_response_code(200);
+            $this->artRepository->saveRate($decoded->rate, $decoded->id_art, $decoded->id_user);
+            echo $decoded->rate;
+        }
+    }
+
+    public function checkRateIsset()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+        if($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content);
+            header('Content-Type: application/json');
+            http_response_code(200);
+            $rate = $this->artRepository->getRateByUser($_COOKIE['id_user'], $decoded->id_art);
+            if ($rate === false) {
+                echo json_encode(['rate' => false]);
+            } else {
+                echo json_encode(['rate' => $rate['rate']]);
+            }
+        }
     }
 
 }

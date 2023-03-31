@@ -12,6 +12,8 @@ People from all over the world can search works of art such as paintings, sculpt
 
 ![Alt text](/public/img/website.png)
 
+![Alt text](/public/img/website3.png)
+
 ## Tech stack
 
 * HTML

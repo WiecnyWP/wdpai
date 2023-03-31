@@ -347,6 +347,7 @@ COPY public.cities (id_city, city) FROM stdin;
 1       Florence
 13      New York
 14      Berlin
+15      Cracow
 \.
 
 
@@ -386,6 +387,11 @@ COPY public.users (id_user, id_user_data, id_user_privilege, username, password)
 COPY public.users_data (id_user_data, name, surname) FROM stdin;
 36      Jan     Kowalski
 37      Janusz  Nowak
+41      test    test
+42      test    test
+43      test    test
+44      test    test
+45      test    test
 \.
 
 
@@ -403,14 +409,14 @@ COPY public.users_privileges (id_user_privilege) FROM stdin;
 -- Name: arts_id_art_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.arts_id_art_seq', 55, true);
+SELECT pg_catalog.setval('public.arts_id_art_seq', 65, true);
 
 
 --
 -- Name: cities_id_city_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.cities_id_city_seq', 14, true);
+SELECT pg_catalog.setval('public.cities_id_city_seq', 15, true);
 
 
 --
@@ -424,14 +430,14 @@ SELECT pg_catalog.setval('public.types_id_type_seq', 16, true);
 -- Name: users_data_id_user_data_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.users_data_id_user_data_seq', 38, true);
+SELECT pg_catalog.setval('public.users_data_id_user_data_seq', 45, true);
 
 
 --
 -- Name: users_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: dbuser
 --
 
-SELECT pg_catalog.setval('public.users_id_user_seq', 27, true);
+SELECT pg_catalog.setval('public.users_id_user_seq', 34, true);
 
 
 --
@@ -549,3 +555,4 @@ ALTER TABLE ONLY public.users
 --
 -- PostgreSQL database dump complete
 --
+
